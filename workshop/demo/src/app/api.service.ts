@@ -9,19 +9,24 @@ import { Post } from './types/post';
 })
 export class ApiService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-getThemes() {
-  const { apiUrl} = environment;
+  getThemes() {
+    const { apiUrl } = environment;
 
-  return this.http.get<Theme[]>(`${apiUrl}/themes`)
-}
+    return this.http.get<Theme[]>(`${apiUrl}/themes`)
+  }
 
-getPosts(limit? : number) {
-  const { apiUrl} = environment;
+  getPosts(limit?: number) {
+    const { apiUrl } = environment;
 
-  return this.http.get<Post[]>(`${apiUrl}/posts`)
-}
+    let url = `${apiUrl}/posts`;
+    if (limit) {
+      url += `?limit=${limit}`;
+    }
+
+    return this.http.get<Post[]>(url)
+  }
 
 
 }
