@@ -8,7 +8,9 @@ import { SharedModule } from './shared/shared.module';
 import { MainComponent } from './main/main.component';
 import { ThemesComponent } from './themes/themes.component';
 import { PostsComponent } from './posts/posts.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http'
     AppComponent,
     MainComponent,
     ThemesComponent,
-    PostsComponent
+    PostsComponent,
+
+  
   ],
   imports: [
     BrowserModule,

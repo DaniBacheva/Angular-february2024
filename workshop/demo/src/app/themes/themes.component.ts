@@ -8,7 +8,8 @@ import { Theme } from '../types/theme';
   styleUrls: ['./themes.component.css']
 })
 export class ThemesComponent implements OnInit {
-  themes: Theme[] = []
+  themes: Theme[] | null= [];
+  isLoading: boolean = true;
 
   constructor(private api: ApiService) { }
 
@@ -16,6 +17,7 @@ export class ThemesComponent implements OnInit {
     this.api.getThemes().subscribe((themes) => {
       console.log(themes);
       this.themes = themes;
+      this.isLoading = false;
     })
 
   }
