@@ -1,4 +1,4 @@
-import { User } from "./user"
+import { User } from "./userId"
 
 export interface Theme {
     
