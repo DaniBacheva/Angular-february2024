@@ -8,7 +8,12 @@ import { User } from '../types/user';
 })
 export class UserService {
   user: User| undefined
- USER_KEY = '[user]'
+ USER_KEY = '[user]';
+
+ get isLogged(): boolean {
+  return !!this.user;
+
+ }
   constructor() { 
     try {
       const storedUser = localStorage.getItem(this.USER_KEY) || '';
