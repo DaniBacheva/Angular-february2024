@@ -9,6 +9,8 @@ import { MainComponent } from './main/main.component';
 import { ThemesComponent } from './themes/themes.component';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { UserModule } from './user/user.module';
 
 
 
@@ -19,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     MainComponent,
     ThemesComponent,
     PostsComponent,
+    HomeComponent,
 
   
   ],
@@ -27,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule, 
     CoreModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
