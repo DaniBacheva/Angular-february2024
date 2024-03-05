@@ -11,6 +11,7 @@ import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
+import { ThemesListModule } from './themes-list/themes-list.module';
 
 
 
@@ -31,7 +32,8 @@ import { UserModule } from './user/user.module';
     CoreModule,
     SharedModule,
     HttpClientModule,
-    UserModule
+    UserModule,
+    ThemesListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
