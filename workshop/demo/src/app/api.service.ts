@@ -17,6 +17,12 @@ export class ApiService {
     return this.http.get<Theme[]>(`${apiUrl}/themes`)
   }
 
+  getTheme(id:string) {
+    const { apiUrl } = environment;
+
+    return this.http.get<Theme>(`${apiUrl}/themes/${id}`)
+  }
+
   getPosts(limit?: number) {
     const { apiUrl } = environment;
 
