@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
 import { ThemesListModule } from './themes-list/themes-list.module';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 
@@ -23,6 +24,7 @@ import { ThemesListModule } from './themes-list/themes-list.module';
     ThemesComponent,
     PostsComponent,
     HomeComponent,
+    WelcomeComponent,
 
   
   ],
