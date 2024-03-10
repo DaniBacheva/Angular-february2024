@@ -9,6 +9,7 @@ import { PostsComponent } from './posts/posts.component';
 import { MainComponent } from './main/main.component';
 import { SharedModule } from '../shared/shared.module';
 import { ThemesComponent } from './themes/themes.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ThemesComponent } from './themes/themes.component';
   imports: [
     CommonModule,
     ThemeRoutingModule, 
-    SharedModule
+    SharedModule,
+    FormsModule
     ],
     exports: [
       PostsComponent,
@@ -30,6 +32,7 @@ import { ThemesComponent } from './themes/themes.component';
       ThemesComponent,
       CurrentThemeComponent,
       NewThemeComponent,
+      
 
     ]
 })
