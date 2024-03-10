@@ -5,9 +5,10 @@ import { NewThemeComponent } from './new-theme/new-theme.component';
 import { CurrentThemeComponent } from './current-theme/current-theme.component';
 import { ThemeRoutingModule } from './theme-routing.module';
 import { PostsComponent } from './posts/posts.component';
-import { ThemesComponent } from './themes/themes.component';
+
 import { MainComponent } from './main/main.component';
 import { SharedModule } from '../shared/shared.module';
+import { ThemesComponent } from './themes/themes.component';
 
 
 @NgModule({
@@ -22,7 +23,14 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     ThemeRoutingModule, 
     SharedModule
-  
-  ]
+    ],
+    exports: [
+      PostsComponent,
+      MainComponent,
+      ThemesComponent,
+      CurrentThemeComponent,
+      NewThemeComponent,
+
+    ]
 })
 export class ThemesListModule { }

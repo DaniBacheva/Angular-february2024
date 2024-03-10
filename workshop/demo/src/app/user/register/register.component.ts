@@ -13,7 +13,7 @@ export class RegisterComponent {
   register(email: string, password: string): void {
 
     // hardcoded data
-    this.userService.register();
+    //this.userService.register();
     this.router.navigate(['/'])
   }
 }
