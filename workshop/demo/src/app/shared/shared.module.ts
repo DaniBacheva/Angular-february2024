@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { RouterModule } from '@angular/router';
-import { AppEmailDirective,  } from './validators/app-email.directive';
+import { AppEmailDirective } from './validators/app-email.directive';
 
 
 
@@ -14,6 +14,6 @@ import { AppEmailDirective,  } from './validators/app-email.directive';
   imports: [
     CommonModule, RouterModule
   ],
-  exports:[LoaderComponent, WelcomeComponent],
+  exports:[LoaderComponent, WelcomeComponent, AppEmailDirective],
 })
 export class SharedModule { }

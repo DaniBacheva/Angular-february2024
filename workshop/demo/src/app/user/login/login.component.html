@@ -10,13 +10,13 @@
                 type="email" name="email" 
                 id="email" placeholder="john.doe@gmail.com"
                 #inputEmail="ngModel" 
-                ngModel 
-                required>
+                ngModel required
+                [appEmail]="appEmailDomains">
             </p>
 
             <ng-container *ngIf="inputEmail.touched">
                 <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
-                <p class="error">Email is not valid!</p> 
+                <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">Email is not valid!</p> 
             </ng-container>
             
             <p class="field field-icon">
@@ -24,16 +24,21 @@
                 <input type="password" name="password"
                 id="password" placeholder="******" 
                 #inputPassword="ngModel" 
-                ngModel 
-                required>
+                ngModel required
+                minlength="5"
+                >
             </p>
 
             <ng-container *ngIf="inputPassword.touched">
-                <p class="error" >Password is required!</p>
-                <p class="error">Password must be at least 4 characters!</p> 
+                <p class="error" *ngIf="inputPassword.errors?.['required']">Password is required!</p>
+                <p class="error" *ngIf="inputPassword.errors?.['minlength']">Password must be at least
+                    {{inputPassword.errors?.['minlength'] ['requiredLength']}}  characters!</p> 
             </ng-container>
 
-            <button >Login</button>
+            <button 
+                [disabled]="form.invalid"
+                [style]="{backgroundColor: form.invalid ? 'grey' : 'blue'}"
+            >Login</button>
 
             <p class="text-center">
                 Have an account?
@@ -43,5 +48,4 @@
         </fieldset>
     </form>
 
-    {{ form.value | json}}
-</div>
+  </div>
