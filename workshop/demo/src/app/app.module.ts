@@ -5,14 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { MainComponent } from './main/main.component';
-import { ThemesComponent } from './themes/themes.component';
-import { PostsComponent } from './posts/posts.component';
+import { MainComponent } from './themes-list/main/main.component';
+import { ThemesComponent } from './themes-list/themes/themes.component';
+import { PostsComponent } from './themes-list/posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
 import { ThemesListModule } from './themes-list/themes-list.module';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { WelcomeComponent } from './shared/welcome/welcome.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -20,11 +21,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    ThemesComponent,
-    PostsComponent,
+  
+
     HomeComponent,
-    WelcomeComponent,
+      NotFoundComponent,
 
   
   ],
