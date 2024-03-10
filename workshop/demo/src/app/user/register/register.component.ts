@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators} from '@angular/forms';
+import { appEmailValidator } from 'src/app/shared/validators/app-email.validator';
+import { EMAIL_DOMAINS } from 'src/app/shared/constans';
+import { passwordsMatchValidator } from 'src/app/shared/validators/passwords-match';
 
 @Component({
   selector: 'app-register',
@@ -8,12 +12,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(private userService: UserService, private router:Router) { }
+form = this.fb.group ({
+  email:["", [ Validators.required, appEmailValidator(EMAIL_DOMAINS)]],
+  username:["", [ Validators.required, Validators.minLength(5)]],
+  tel:[""],
+  passGroup: this.fb.group ({
+    password:["", [ Validators.required, Validators.minLength(5)]],
+    rePassword:["", [ Validators.required]],
+  },
+  {
+    Validators:[passwordsMatchValidator("password", "rePassword")]
+  }
+  ),
+})
 
-  register(email: string, password: string): void {
+  constructor(private fb: FormBuilder) { }
 
+  register(): void {
+
+    if (this.form.invalid) {
+      return;
+    }
+    console.log(this.form.value)
     // hardcoded data
     //this.userService.register();
-    this.router.navigate(['/'])
+    //this.router.navigate(['/'])
   }
 }
