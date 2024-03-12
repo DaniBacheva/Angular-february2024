@@ -14,6 +14,7 @@ import { UserModule } from './user/user.module';
 import { ThemesListModule } from './themes-list/themes-list.module';
 
 import { NotFoundComponent } from './not-found/not-found.component';
+import { appInterceptorProvider } from './app.interseptor';
 
 
 
@@ -37,7 +38,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     UserModule,
     ThemesListModule
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
