@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { EMAIL_DOMAINS } from 'src/app/shared/constans';
 import { appEmailValidator } from 'src/app/shared/validators/app-email.validator';
+import { UserService } from '../user.service';
 
 interface Profile {
   username: string,

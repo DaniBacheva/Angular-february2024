@@ -12,15 +12,19 @@ import { EMAIL_DOMAINS } from 'src/app/shared/constans';
 export class LoginComponent {
 
   appEmailDomains = EMAIL_DOMAINS;
-  constructor(private userService: UserService, private router:Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
-  login( form: NgForm): void {
+  login(form: NgForm): void {
     if (form.invalid) {
       return;
     }
-   
-    this.userService.login();
-    this.router.navigate(['/'])
+    const { email, password } = form.value
+    this.userService.login(email, password).subscribe(() => {
+      this.router.navigate(['/themes'])
+    })
   }
+
+  
+
 
 }
