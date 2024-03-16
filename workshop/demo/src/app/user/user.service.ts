@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../types/user';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, tap } from 'rxjs';
 
 
 
@@ -8,7 +9,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  user: User| undefined
+  private user$$ = new BehaviorSubject<User | undefined> (undefined);
+
+  user$ = this.user$$.asObservable();
+
+  user: User| undefined;
  USER_KEY = '[user]';
 
  get isLogged(): boolean {
@@ -16,13 +21,8 @@ export class UserService {
 
  }
   constructor( private http: HttpClient) { 
-    try {
-      const storedUser = localStorage.getItem(this.USER_KEY) || '';
-      this.user = JSON.parse(storedUser);
-    }
-    catch (error) {
-      this.user = undefined;
-    }
+  
+    
   }
 
  register(
@@ -33,15 +33,17 @@ export class UserService {
   tel:string, 
   ) {
     return this.http.post<User>('/api/register', {username, email, password, rePassword, tel})
+    .pipe(tap((user)=> this.user$$.next(user)));
   }
 
   login(email:string, password: string) {
     return this.http.post<User>('/api/login', {email, password})
+    .pipe(tap((user)=> this.user$$.next(user)));
   }
 
-  logout(): void {
-    this.user = undefined;
-    localStorage.removeItem(this.USER_KEY);
+  logout() {
+    return this.http.post<User>('/api/logout', {})
+    .pipe(tap(()=> this.user$$.next(undefined)));
 
   }
 }
