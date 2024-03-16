@@ -24,8 +24,14 @@ constructor(private router:Router, private errorService:ErrorService){}
       }
       return next.handle(req).pipe(
         catchError((error)=> {
-          this.errorService.setError(error);
-          this.router.navigate(['/error'])
+                    if (error.status===401) {
+            this.router.navigate(['auth/login'])
+          }
+          else {
+            this.errorService.setError(error);
+            this.router.navigate(['/error'])
+          }
+          
           return [error];
         })
       )
