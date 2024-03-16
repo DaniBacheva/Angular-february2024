@@ -19,9 +19,7 @@ const routes: Routes = [
    path:'new-theme', component:NewThemeComponent,
    //canActivate:[AuthActivate]
   },
-  { path:'**', redirectTo: '/404'},
-  { path: '404', component: NotFoundComponent}
-  
+   
 ];
 
 @NgModule({
