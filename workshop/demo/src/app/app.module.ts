@@ -14,6 +14,7 @@ import { ThemesListModule } from './themes-list/themes-list.module';
 
 import { NotFoundComponent } from './not-found/not-found.component';
 import { appInterceptorProvider } from './app.interseptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 
 
@@ -23,6 +24,7 @@ import { appInterceptorProvider } from './app.interseptor';
     AppComponent,
     HomeComponent,
     NotFoundComponent,
+    AuthenticateComponent,
 
 
   ],
